@@ -15,8 +15,8 @@
                 "ConfigurationSource": "API",
                 "CodeConfigurationValues": {
                     "Runtime": "PYTHON_311",
-                    "BuildCommand": "pip3 install -r backend/requirements.txt",
-                    "StartCommand": "cd backend && python3 seed.py && python3 -m uvicorn main:app --host 0.0.0.0 --port 8000",
+                    "BuildCommand": "pip3 install -r backend/requirements.txt && chmod +x start.sh",
+                    "StartCommand": "bash start.sh",
                     "Port": "8000",
                     "RuntimeEnvironmentVariables": {
                         "JWT_SECRET": "priorauth-production-secret-2026",
