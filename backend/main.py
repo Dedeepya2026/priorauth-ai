@@ -1,8 +1,10 @@
 import logging
 import traceback
+import os
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, FileResponse, HTMLResponse
+from fastapi.staticfiles import StaticFiles
 from pydantic import ValidationError
 from config import settings
 from database import engine, Base
@@ -87,11 +89,71 @@ app.include_router(analytics.router)
 
 
 # ── Health / Root ────────────────────────────────────────
-@app.get("/")
-def root():
-    return {"name": settings.APP_NAME, "status": "running", "version": "1.0.0"}
-
-
 @app.get("/api/health")
 def health():
     return {"status": "healthy", "app": settings.APP_NAME, "version": "1.0.0"}
+
+
+# ── Serve Static Frontend ───────────────────────────────
+# The Next.js static export goes to ../frontend/out/
+FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "out")
+# Also check for a relative path from the working directory
+if not os.path.isdir(FRONTEND_DIR):
+    FRONTEND_DIR = os.path.join(os.path.dirname(__file__), "..", "frontend", "out")
+if not os.path.isdir(FRONTEND_DIR):
+    FRONTEND_DIR = os.path.join(os.getcwd(), "..", "frontend", "out")
+if not os.path.isdir(FRONTEND_DIR):
+    FRONTEND_DIR = os.path.join(os.getcwd(), "frontend", "out")
+
+logger.info(f"Frontend directory: {FRONTEND_DIR} (exists: {os.path.isdir(FRONTEND_DIR)})")
+
+# Mount Next.js static assets if the build output exists
+if os.path.isdir(FRONTEND_DIR):
+    # Mount _next directory for JS/CSS assets
+    next_static = os.path.join(FRONTEND_DIR, "_next")
+    if os.path.isdir(next_static):
+        app.mount("/_next", StaticFiles(directory=next_static), name="next_static")
+
+    # Serve frontend pages as catch-all
+    @app.get("/{full_path:path}")
+    async def serve_frontend(full_path: str):
+        """Serve static frontend pages. API routes are handled by routers above."""
+        # Skip API routes (already handled by routers)
+        if full_path.startswith("api/"):
+            return JSONResponse(status_code=404, content={"detail": "Not found"})
+
+        # Try to find the exact file
+        file_path = os.path.join(FRONTEND_DIR, full_path)
+
+        # If path ends with /, look for index.html in that directory
+        if full_path == "" or full_path.endswith("/"):
+            index_path = os.path.join(FRONTEND_DIR, full_path, "index.html")
+            if os.path.isfile(index_path):
+                return FileResponse(index_path, media_type="text/html")
+
+        # If it's a directory, look for index.html inside
+        if os.path.isdir(file_path):
+            index_path = os.path.join(file_path, "index.html")
+            if os.path.isfile(index_path):
+                return FileResponse(index_path, media_type="text/html")
+
+        # Try adding .html extension
+        html_path = file_path + ".html"
+        if os.path.isfile(html_path):
+            return FileResponse(html_path, media_type="text/html")
+
+        # Try as an exact file (for images, fonts, etc.)
+        if os.path.isfile(file_path):
+            return FileResponse(file_path)
+
+        # For SPA-like behavior, serve the root index.html for unknown paths
+        root_index = os.path.join(FRONTEND_DIR, "index.html")
+        if os.path.isfile(root_index):
+            return FileResponse(root_index, media_type="text/html")
+
+        return JSONResponse(status_code=404, content={"detail": "Page not found"})
+else:
+    @app.get("/")
+    def root():
+        return {"name": settings.APP_NAME, "status": "running", "version": "1.0.0", "note": "Frontend not built. Visit /docs for API documentation."}
+

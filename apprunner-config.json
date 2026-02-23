@@ -15,13 +15,14 @@
                 "ConfigurationSource": "API",
                 "CodeConfigurationValues": {
                     "Runtime": "PYTHON_311",
-                    "BuildCommand": "pip3 install -r backend/requirements.txt && chmod +x start.sh",
+                    "BuildCommand": "pip install -r backend/requirements.txt && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && . \"$NVM_DIR/nvm.sh\" && nvm install 20 && cd frontend && npm ci && npm run build && cd ..",
                     "StartCommand": "bash start.sh",
-                    "Port": "8000",
+                    "Port": "8080",
                     "RuntimeEnvironmentVariables": {
                         "JWT_SECRET": "priorauth-production-secret-2026",
                         "JWT_EXPIRE_MINUTES": "60",
-                        "CORS_ORIGINS": "*"
+                        "CORS_ORIGINS": "*",
+                        "DATABASE_URL": "sqlite:////tmp/priorauth.db"
                     }
                 }
             }
