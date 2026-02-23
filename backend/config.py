@@ -1,9 +1,11 @@
 from pydantic_settings import BaseSettings
 import os
+import platform
 
 class Settings(BaseSettings):
     APP_NAME: str = "PriorAuth AI"
-    DATABASE_URL: str = "sqlite:///./priorauth.db"
+    # Use /tmp on Linux (App Runner) for writable SQLite; local dev uses relative path
+    DATABASE_URL: str = "sqlite:////tmp/priorauth.db" if platform.system() == "Linux" else "sqlite:///./priorauth.db"
     UPLOAD_DIR: str = os.path.join(os.path.dirname(__file__), "uploads")
     JWT_SECRET: str = "priorauth-dev-secret-change-in-production"
     JWT_ALGORITHM: str = "HS256"
