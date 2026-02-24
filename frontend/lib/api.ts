@@ -1,4 +1,4 @@
-const API_BASE = '';
+const API_BASE = '/api';
 
 function getToken(): string | null {
     if (typeof window === 'undefined') return null;
