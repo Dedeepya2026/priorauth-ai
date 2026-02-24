@@ -4,6 +4,10 @@ set -e
 echo "[AppRunner] Starting PriorAuth AI..."
 echo "[AppRunner] Working directory: $(pwd)"
 
+# Install Python dependencies at runtime (build container packages don't persist)
+echo "[AppRunner] Installing Python dependencies..."
+pip3 install -r backend/requirements.txt --quiet 2>&1
+
 # Navigate to backend directory and start the API
 cd backend
 
