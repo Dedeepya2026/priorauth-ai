@@ -31,17 +31,8 @@ async function request(path: string, options: RequestInit = {}) {
     if (!(options.body instanceof FormData)) {
         headers['Content-Type'] = 'application/json';
     }
-    // Ensure trailing slash to prevent FastAPI 307 redirects that drop auth headers
-    let normalizedPath = path;
-    const qIdx = normalizedPath.indexOf('?');
-    if (qIdx === -1) {
-        if (!normalizedPath.endsWith('/')) normalizedPath += '/';
-    } else {
-        const basePath = normalizedPath.substring(0, qIdx);
-        const query = normalizedPath.substring(qIdx);
-        if (!basePath.endsWith('/')) normalizedPath = basePath + '/' + query;
-    }
-    const res = await fetch(`${API_BASE}${normalizedPath}`, { ...options, headers });
+    // No trailing slash normalization needed - paths must match FastAPI routes exactly
+    const res = await fetch(`${API_BASE}${path}`, { ...options, headers });
     if (res.status === 401 || res.status === 403) {
         clearToken();
         if (typeof window !== 'undefined') window.location.href = '/login';
