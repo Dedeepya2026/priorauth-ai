@@ -15,7 +15,7 @@
                 "ConfigurationSource": "API",
                 "CodeConfigurationValues": {
                     "Runtime": "PYTHON_311",
-                    "BuildCommand": "pip install -r backend/requirements.txt && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && . \"$NVM_DIR/nvm.sh\" && nvm install 20 && cd frontend && npm ci && npm run build && cd ..",
+                    "BuildCommand": "pip3 install -r backend/requirements.txt && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && . \"$NVM_DIR/nvm.sh\" && nvm install 20 && cd frontend && npm ci && npm run build && cd ..",
                     "StartCommand": "bash start.sh",
                     "Port": "8080",
                     "RuntimeEnvironmentVariables": {

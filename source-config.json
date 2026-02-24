@@ -1,0 +1,28 @@
+{
+    "AuthenticationConfiguration": {
+        "ConnectionArn": "arn:aws:apprunner:us-east-1:040740748442:connection/Integrationassign/5a2c86358bac40f3a74e7660c09726c7"
+    },
+    "AutoDeploymentsEnabled": true,
+    "CodeRepository": {
+        "RepositoryUrl": "https://github.com/Dedeepya2026/priorauth-ai",
+        "SourceCodeVersion": {
+            "Type": "BRANCH",
+            "Value": "master"
+        },
+        "CodeConfiguration": {
+            "ConfigurationSource": "API",
+            "CodeConfigurationValues": {
+                "Runtime": "PYTHON_311",
+                "BuildCommand": "pip3 install -r backend/requirements.txt && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.7/install.sh | bash && export NVM_DIR=\"$HOME/.nvm\" && . \"$NVM_DIR/nvm.sh\" && nvm install 20 && cd frontend && npm ci && npm run build && cd ..",
+                "StartCommand": "bash start.sh",
+                "Port": "8080",
+                "RuntimeEnvironmentVariables": {
+                    "JWT_SECRET": "priorauth-production-secret-2026",
+                    "JWT_EXPIRE_MINUTES": "60",
+                    "CORS_ORIGINS": "*",
+                    "DATABASE_URL": "sqlite:////tmp/priorauth.db"
+                }
+            }
+        }
+    }
+}
