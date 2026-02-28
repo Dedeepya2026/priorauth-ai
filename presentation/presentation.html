@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Application Portfolio Presentation - DEDEEPYA MADIREDDY</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            overflow: hidden;
+            height: 100vh;
+        }
+
+        .slideshow-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 60px 80px;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateX(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide-title {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-title-temu {
+            background: linear-gradient(135deg, #e53935 0%, #c62828 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-title-pa {
+            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-content {
+            background: linear-gradient(135deg, #1a1a2e 0%, #0f0f1a 100%);
+        }
+
+        .slide-demo {
+            background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-qa {
+            background: linear-gradient(135deg, #f57c00 0%, #e65100 100%);
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.8rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            font-size: 2.4rem;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: #ffd54f;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 20px 0 15px;
+            color: #64b5f6;
+        }
+
+        p,
+        li {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            opacity: 0.9;
+            margin-bottom: 30px;
+        }
+
+        .author {
+            font-size: 1.5rem;
+            margin-top: 40px;
+            color: #ffd54f;
+        }
+
+        .url {
+            font-size: 1.2rem;
+            margin-top: 20px;
+            padding: 15px 30px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .url a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 1.05rem;
+        }
+
+        th,
+        td {
+            padding: 14px 18px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        th {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffd54f;
+            font-weight: 600;
+        }
+
+        tr:hover {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        pre {
+            background: #0d1117;
+            padding: 20px;
+            border-radius: 10px;
+            overflow-x: auto;
+            margin: 15px 0;
+            font-family: 'Consolas', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        code {
+            color: #58a6ff;
+        }
+
+        ul,
+        ol {
+            padding-left: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 5px 15px;
+            background: #4caf50;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin: 5px;
+        }
+
+        .badge-red {
+            background: #e53935;
+        }
+
+        .badge-orange {
+            background: #f57c00;
+        }
+
+        .badge-blue {
+            background: #1976d2;
+        }
+
+        .badge-purple {
+            background: #7b1fa2;
+        }
+
+        .badge-cyan {
+            background: #0097a7;
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            flex: 1;
+        }
+
+        .three-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .card h3 {
+            margin-top: 0;
+        }
+
+        .diagram {
+            background: #0d1117;
+            padding: 30px;
+            border-radius: 15px;
+            font-family: 'Consolas', monospace;
+            font-size: 0.85rem;
+            line-height: 1.4;
+            white-space: pre;
+            overflow-x: auto;
+        }
+
+        .nav-controls {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 15px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            padding: 15px 30px;
+            border-radius: 30px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.05);
+        }
+
+        .nav-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #6a11cb, #2575fc, #00b4d8);
+            transition: width 0.3s ease;
+        }
+
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            right: 40px;
+            font-size: 1rem;
+            opacity: 0.7;
+        }
+
+        .check {
+            color: #4caf50;
+        }
+
+        .demo-btn {
+            display: inline-block;
+            padding: 20px 50px;
+            background: #ffd54f;
+            color: #1a1a2e;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-top: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(255, 213, 79, 0.4);
+        }
+
+        .highlight-box {
+            background: rgba(255, 213, 79, 0.2);
+            border-left: 4px solid #ffd54f;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 0 10px 10px 0;
+        }
+
+        .scroll-content {
+            flex: 1;
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .scroll-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scroll-content::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+        }
+
+        .notes-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+
+        .speaker-notes {
+            display: none;
+            position: fixed;
+            bottom: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            padding: 20px 30px;
+            border-radius: 15px;
+            max-width: 800px;
+            font-size: 1rem;
+            line-height: 1.6;
+            z-index: 999;
+        }
+
+        .speaker-notes.visible {
+            display: block;
+        }
+
+        .keyboard-hint {
+            position: fixed;
+            bottom: 90px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.85rem;
+            opacity: 0.5;
+        }
+
+        .fullscreen-btn {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            z-index: 1000;
+        }
+
+        .section-divider {
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            opacity: 0.6;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <button class="fullscreen-btn" onclick="toggleFullscreen()">
+        <i class="fas fa-expand"></i> Fullscreen
+    </button>
+
+    <button class="notes-toggle" onclick="toggleNotes()">
+        <i class="fas fa-sticky-note"></i> Notes
+    </button>
+
+    <div class="slideshow-container">
+
+        <!-- ==================== SLIDE 1: PORTFOLIO TITLE ==================== -->
+        <div class="slide slide-title active"
+            data-notes="Welcome everyone. Today I'm presenting my two AI-powered applications: a Temu Clone e-commerce platform and PriorAuth AI, a healthcare prior authorization system. Both are deployed live on AWS App Runner.">
+            <p class="section-divider">Application Portfolio</p>
+            <h1>🚀 AI-Powered Applications</h1>
+            <p class="subtitle">Temu Clone & PriorAuth AI</p>
+            <p class="author"><strong>DEDEEPYA MADIREDDY</strong></p>
+            <p style="margin-top: 30px; opacity: 0.8;">
+                <span class="badge badge-red">HTML5</span>
+                <span class="badge badge-blue">CSS3</span>
+                <span class="badge badge-orange">JavaScript</span>
+                <span class="badge badge-red">Node.js</span>
+                <span class="badge badge-purple">Next.js</span>
+                <span class="badge badge-cyan">FastAPI</span>
+                <span class="badge">AWS App Runner</span>
+            </p>
+        </div>
+
+        <!-- ==================== PART 1: TEMU CLONE ==================== -->
+
+        <!-- SLIDE 2: Temu Clone Title -->
+        <div class="slide slide-title-temu"
+            data-notes="Let's start with my first application — the Temu Clone. This is a fully functional e-commerce web app built using AI-assisted development with Antigravity and deployed live on AWS App Runner.">
+            <p class="section-divider">Application 1</p>
+            <h1>🛒 Temu Clone</h1>
+            <p class="subtitle">Shop Like a Billionaire</p>
+            <div class="url">
+                <a href="https://gktp6jkb3c.us-east-1.awsapprunner.com/index.html" target="_blank">
+                    <i class="fas fa-globe"></i> gktp6jkb3c.us-east-1.awsapprunner.com
+                </a>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.8;">
+                <span class="badge">HTML5</span>
+                <span class="badge badge-blue">CSS3</span>
+                <span class="badge badge-orange">JavaScript</span>
+                <span class="badge badge-red">Node.js</span>
+                <span class="badge">AWS App Runner</span>
+            </p>
+        </div>
+
+        <!-- SLIDE 3: Temu Executive Summary -->
+        <div class="slide slide-content"
+            data-notes="This project solves two problems: demonstrating a modern shopping experience with categories, search, and checkout, and providing hands-on experience with cloud deployment using AWS App Runner.">
+            <h2>📊 Executive Summary — Temu Clone</h2>
+            <div class="scroll-content">
+                <table>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                        <th>Key Metrics</th>
+                    </tr>
+                    <tr>
+                        <td>Shoppers need streamlined deal browsing</td>
+                        <td>Modern e-commerce clone with search & filtering</td>
+                        <td><strong>6</strong> HTML pages</td>
+                    </tr>
+                    <tr>
+                        <td>Cloud deployment is complex</td>
+                        <td>AI-assisted dev + AWS App Runner</td>
+                        <td><strong>&lt;5 min</strong> deploy time</td>
+                    </tr>
+                    <tr>
+                        <td>No CI/CD experience</td>
+                        <td>GitHub → AWS auto-deployment</td>
+                        <td><strong>Auto-deploy</strong> enabled</td>
+                    </tr>
+                </table>
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li><span class="check">✓</span> Full e-commerce UI with 50+ products</li>
+                    <li><span class="check">✓</span> Responsive design (mobile + desktop)</li>
+                    <li><span class="check">✓</span> Live cloud deployment with auto-scaling</li>
+                    <li><span class="check">✓</span> Zero-config CI/CD pipeline</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 4: Temu Problem Framing -->
+        <div class="slide slide-content"
+            data-notes="In Workshops 1 and 2, I framed the problem: Could AI help me build a complete e-commerce application quickly? I chose Temu because it has rich features that would challenge both the AI and my skills.">
+            <h2>🎯 Phase 1-2: Problem Framing</h2>
+            <div class="scroll-content">
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Problem Statement</h3>
+                    <p>"Building an e-commerce application requires complex setup: product catalogs, search
+                        functionality, cart management, and cloud deployment—typically taking weeks of development."</p>
+                </div>
+                <div class="highlight-box" style="background: rgba(100,181,246,0.2); border-color: #64b5f6;">
+                    <h3 style="margin-top: 0; color: #64b5f6;">AI Use Case</h3>
+                    <p>"Can AI-assisted development with Antigravity accelerate building a production-ready e-commerce
+                        clone from concept to live deployment?"</p>
+                </div>
+                <h3>Why This Matters</h3>
+                <ul>
+                    <li>E-commerce is a <strong>$6.3 trillion</strong> industry</li>
+                    <li>Understanding full-stack development is essential</li>
+                    <li>Cloud deployment skills are in high demand</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 5: Temu Design & Prototype -->
+        <div class="slide slide-content"
+            data-notes="I started in Claude Artifacts to rapidly prototype the UI. The AI generated the initial HTML structure, CSS styling, and JavaScript interactions.">
+            <h2>🎨 Phase 3: Design & Prototype</h2>
+            <div class="scroll-content">
+                <h3>Workshop 1: AI Prompts Used</h3>
+                <div class="card" style="margin-bottom: 20px;">
+                    <ol>
+                        <li>"Create a Temu-style e-commerce homepage with hero banner and product grid"</li>
+                        <li>"Add category navigation with dropdown and search functionality"</li>
+                        <li>"Build a product detail page with variants and add-to-cart"</li>
+                    </ol>
+                </div>
+                <h3>Prototype Features Generated</h3>
+                <div class="three-column">
+                    <div class="card">
+                        <h3 style="color: #e53935;">🎯 Hero Banner</h3>
+                        <p>Valentine's Day sale theme with CTAs</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #f57c00;">📦 Product Grid</h3>
+                        <p>50+ items with prices & badges</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #4caf50;">🔍 Search</h3>
+                        <p>Query param filtering</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 6: Temu GitHub -->
+        <div class="slide slide-content"
+            data-notes="Here's my GitHub repository where all the source code is hosted. The repository is connected to AWS App Runner for automatic deployments whenever I push to the master branch.">
+            <h2>📂 GitHub Repository</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/github-repo.png" alt="GitHub Repository Screenshot"
+                    style="max-width: 90%; max-height: 70vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="font-size: 1.2rem; opacity: 0.8;">Repository:
+                        <strong>Dedeepya2026/react-app-aws-runner</strong>
+                    </p>
+                    <a href="https://github.com/Dedeepya2026/react-app-aws-runner" target="_blank" class="demo-btn"
+                        style="margin-top: 15px; font-size: 1.1rem; padding: 15px 30px;">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 7: Temu Testing -->
+        <div class="slide slide-content"
+            data-notes="For testing, I validated all user flows manually and used browser dev tools to check responsiveness. I also reviewed all AI-generated code for security issues.">
+            <h2>🧪 Phase 4: Testing & Responsible AI</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Functional Testing</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Product browsing & navigation</li>
+                        <li><span class="check">✓</span> Search with query params</li>
+                        <li><span class="check">✓</span> Category filtering</li>
+                        <li><span class="check">✓</span> Add to cart functionality</li>
+                        <li><span class="check">✓</span> Checkout form validation</li>
+                        <li><span class="check">✓</span> Responsive design</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>AI Responsibility</h3>
+                    <table>
+                        <tr>
+                            <th>Concern</th>
+                            <th>Mitigation</th>
+                        </tr>
+                        <tr>
+                            <td>Code quality</td>
+                            <td>Manual review</td>
+                        </tr>
+                        <tr>
+                            <td>Security</td>
+                            <td>No sensitive data</td>
+                        </tr>
+                        <tr>
+                            <td>Accessibility</td>
+                            <td>Semantic HTML</td>
+                        </tr>
+                        <tr>
+                            <td>Accuracy</td>
+                            <td>Human verification</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 8: Temu Bugs Fixed -->
+        <div class="slide slide-content"
+            data-notes="The biggest challenge was the deployment runtime error. AWS App Runner didn't support Node 18, so I had to update to Node 22.">
+            <h2>🐛 Bugs Found & Fixed — Temu Clone</h2>
+            <div class="scroll-content">
+                <table>
+                    <tr>
+                        <th>Bug</th>
+                        <th>Impact</th>
+                        <th>Fix</th>
+                    </tr>
+                    <tr>
+                        <td>Runtime version error</td>
+                        <td>Deployment failed</td>
+                        <td>Updated to <code>nodejs22</code></td>
+                    </tr>
+                    <tr>
+                        <td>Port configuration</td>
+                        <td>App not accessible</td>
+                        <td>Set <code>port: 8080</code></td>
+                    </tr>
+                    <tr>
+                        <td>Image loading</td>
+                        <td>Broken images</td>
+                        <td>Used reliable CDN URLs</td>
+                    </tr>
+                    <tr>
+                        <td>Cart persistence</td>
+                        <td>Reset on refresh</td>
+                        <td>Added localStorage</td>
+                    </tr>
+                    <tr>
+                        <td>Search encoding</td>
+                        <td>Special chars broke</td>
+                        <td>URL encode/decode</td>
+                    </tr>
+                </table>
+                <div class="highlight-box" style="margin-top: 30px;">
+                    <h3 style="margin-top: 0;">Critical Fix</h3>
+                    <pre><code>Error: "The specified runtime version is not supported"
+Solution: Changed nodejs18 → nodejs22 in apprunner.yaml</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 9: Temu AWS Deployment -->
+        <div class="slide slide-content"
+            data-notes="I used AWS CLI integrated with Cursor to create the App Runner service. The apprunner.yaml file tells AWS how to build and run the app.">
+            <h2>☁️ Phase 5: AWS Deployment — Temu</h2>
+            <div class="two-column">
+                <div>
+                    <h3>apprunner.yaml</h3>
+                    <pre><code>version: 1.0
+runtime: nodejs22
+build:
+  commands:
+    pre-build:
+      - npm install
+    build:
+      - npm run build
+run:
+  command: npm start
+  network:
+    port: 8080
+  env:
+    - name: NODE_ENV
+      value: production</code></pre>
+                </div>
+                <div>
+                    <h3>AWS CLI Commands</h3>
+                    <pre><code># Create GitHub connection
+aws apprunner create-connection \
+  --connection-name github-app-runner
+
+# Create App Runner service
+aws apprunner create-service \
+  --cli-input-json file://config.json
+
+# Get live URL
+aws apprunner list-services \
+  --query "ServiceSummaryList[].ServiceUrl"</code></pre>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 10: AWS CLI in Cursor -->
+        <div class="slide slide-content"
+            data-notes="Here you can see AWS CLI is properly configured and connected within Cursor IDE. The aws sts get-caller-identity command confirms my AWS account is correctly linked, allowing me to deploy directly from the IDE.">
+            <h2>🔗 AWS CLI Connected to Cursor IDE</h2>
+            <div style="display: flex; align-items: center; justify-content: center; gap: 50px; flex: 1;">
+                <img src="/presentation-assets/aws-cli-cursor.png" alt="AWS CLI in Cursor showing account identity"
+                    style="max-height: 65vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div>
+                    <h3>Account Verified ✓</h3>
+                    <div class="card" style="margin-bottom: 20px;">
+                        <p><strong>Command:</strong></p>
+                        <pre style="margin: 10px 0;"><code>aws sts get-caller-identity</code></pre>
+                    </div>
+                    <div class="card">
+                        <p><strong>Benefits:</strong></p>
+                        <ul style="margin-top: 10px;">
+                            <li>Deploy from IDE terminal</li>
+                            <li>No context switching</li>
+                            <li>Faster iteration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 11: AWS App Runner Status -->
+        <div class="slide slide-content"
+            data-notes="Here's the AWS App Runner console showing my service is running successfully. The green checkmark indicates the application is live and healthy.">
+            <h2>✅ AWS App Runner - Service Running</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/apprunner-status.png" alt="AWS App Runner Status - Running"
+                    style="max-width: 95%; max-height: 60vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 30px;">
+                    <table style="max-width: 600px; margin: 0 auto;">
+                        <tr>
+                            <th>Service Name</th>
+                            <td>react-app-aws-runner</td>
+                        </tr>
+                        <tr>
+                            <th>Status</th>
+                            <td><span style="color: #4caf50; font-weight: bold;">✓ Running</span></td>
+                        </tr>
+                        <tr>
+                            <th>Live URL</th>
+                            <td><a href="https://gktp6jkb3c.us-east-1.awsapprunner.com" target="_blank"
+                                    style="color: #64b5f6;">gktp6jkb3c.us-east-1.awsapprunner.com</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Live Demo -->
+        <div class="slide slide-demo"
+            data-notes="Let me show you the live application. Open the URL and demonstrate: homepage, click a product, add to cart, show categories dropdown, perform a search.">
+            <h1>🚀 Live Demo</h1>
+            <a href="https://gktp6jkb3c.us-east-1.awsapprunner.com/index.html" target="_blank" class="demo-btn">
+                <i class="fas fa-external-link-alt"></i> Open Live Application
+            </a>
+            <div style="margin-top: 50px;">
+                <table style="max-width: 500px; margin: 0 auto;">
+                    <tr>
+                        <th>Setting</th>
+                        <th>Value</th>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td>0.25 vCPU</td>
+                    </tr>
+                    <tr>
+                        <td>Memory</td>
+                        <td>0.5 GB</td>
+                    </tr>
+                    <tr>
+                        <td>Auto-deploy</td>
+                        <td>Enabled</td>
+                    </tr>
+                    <tr>
+                        <td>Region</td>
+                        <td>us-east-1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <!-- SLIDE 13: Live Website Preview -->
+        <div class="slide slide-content"
+            data-notes="Here's a screenshot of my live Temu Clone website running on AWS App Runner. You can see the Valentine's Day sale banner, product grid, the navigation bar with categories, and the search functionality - all working live in the browser.">
+            <h2>🌐 Live Website Preview</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/live-website.png" alt="Temu Clone Live Website"
+                    style="max-width: 95%; max-height: 65vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 20px; text-align: center;">
+                    <p style="font-size: 1.1rem; opacity: 0.8;">Live at: <a
+                            href="https://gktp6jkb3c.us-east-1.awsapprunner.com/index.html" target="_blank"
+                            style="color: #64b5f6;">gktp6jkb3c.us-east-1.awsapprunner.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 12: Temu Feedback & Iteration -->
+        <div class="slide slide-content"
+            data-notes="Based on peer feedback in Workshop 4, I made several improvements including better category navigation and enhanced mobile experience.">
+            <h2>🔄 Phase 6: Feedback & Iteration — Temu</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Feedback Received</h3>
+                    <ul>
+                        <li>"Add more categories" → <strong>Added 20+</strong></li>
+                        <li>"Make search visible" → <strong>Enlarged bar</strong></li>
+                        <li>"Add product badges" → <strong>Hot/Sale/New</strong></li>
+                        <li>"Fix mobile nav" → <strong>Responsive menu</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Iterations Made</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Enhanced hover effects</li>
+                        <li><span class="check">✓</span> Loading animations</li>
+                        <li><span class="check">✓</span> Better form validation</li>
+                        <li><span class="check">✓</span> Cart notification popups</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== PART 2: PRIORAUTH AI ==================== -->
+
+        <!-- SLIDE 13: PriorAuth AI Title -->
+        <div class="slide slide-title-pa"
+            data-notes="Now let's move to my second application — PriorAuth AI. This is a full-stack healthcare platform that streamlines the prior authorization workflow using AI-assisted development.">
+            <p class="section-divider">Application 2</p>
+            <h1>🏥 PriorAuth AI</h1>
+            <p class="subtitle">AI-Powered Prior Authorization & Clinical Documentation</p>
+            <p class="author"><strong>DEDEEPYA MADIREDDY</strong></p>
+            <div class="url">
+                <a href="https://xy7ftdr25i.us-east-1.awsapprunner.com/" target="_blank">
+                    <i class="fas fa-globe"></i> xy7ftdr25i.us-east-1.awsapprunner.com
+                </a>
+            </div>
+            <p style="margin-top: 30px; opacity: 0.8;">
+                <span class="badge badge-purple">Next.js 15</span>
+                <span class="badge badge-blue">React 19</span>
+                <span class="badge badge-cyan">FastAPI</span>
+                <span class="badge badge-orange">Python</span>
+                <span class="badge">AWS App Runner</span>
+                <span class="badge badge-red">Docker</span>
+            </p>
+        </div>
+
+        <!-- SLIDE 14: PriorAuth Executive Summary -->
+        <div class="slide slide-content"
+            data-notes="PriorAuth AI solves a real healthcare pain point — the prior authorization workflow that typically involves manual paperwork, phone calls, and weeks of delays.">
+            <h2>📊 Executive Summary — PriorAuth AI</h2>
+            <div class="scroll-content">
+                <table>
+                    <tr>
+                        <th>Problem</th>
+                        <th>Solution</th>
+                        <th>Key Metrics</th>
+                    </tr>
+                    <tr>
+                        <td>PA workflow is manual & slow</td>
+                        <td>AI-powered PA packet generation</td>
+                        <td><strong>6</strong> core modules</td>
+                    </tr>
+                    <tr>
+                        <td>Clinical docs take hours</td>
+                        <td>AI-assisted SOAP/H&P notes</td>
+                        <td><strong>ICD-10/CPT</strong> auto-coding</td>
+                    </tr>
+                    <tr>
+                        <td>Denial tracking is fragmented</td>
+                        <td>Analytics dashboard with trends</td>
+                        <td><strong>Real-time</strong> insights</td>
+                    </tr>
+                    <tr>
+                        <td>Role access is uncontrolled</td>
+                        <td>JWT + RBAC for 3 roles</td>
+                        <td><strong>HIPAA</strong>-sensitive</td>
+                    </tr>
+                </table>
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li><span class="check">✓</span> Full-stack healthcare platform (Next.js + FastAPI)</li>
+                    <li><span class="check">✓</span> AI-assisted PA packet & appeal letter generation</li>
+                    <li><span class="check">✓</span> Role-based access (Nurse, Provider, Manager)</li>
+                    <li><span class="check">✓</span> Denial analytics with payer trend tracking</li>
+                    <li><span class="check">✓</span> Deployed on AWS App Runner with Docker</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 15: PriorAuth Problem Framing -->
+        <div class="slide slide-content"
+            data-notes="Prior authorization is a major pain point in US healthcare. An estimated 34% of physicians report that PA has led to a serious adverse event for a patient.">
+            <h2>🎯 Problem Framing — PriorAuth AI</h2>
+            <div class="scroll-content">
+                <div class="highlight-box">
+                    <h3 style="margin-top: 0;">Problem Statement</h3>
+                    <p>"Prior authorization in healthcare involves manual document collection, phone calls to payers,
+                        and weeks of delays — costing clinics time, money, and impacting patient outcomes."</p>
+                </div>
+                <div class="highlight-box" style="background: rgba(100,181,246,0.2); border-color: #64b5f6;">
+                    <h3 style="margin-top: 0; color: #64b5f6;">AI Use Case</h3>
+                    <p>"Can AI accelerate PA packet generation, clinical documentation, and denial analytics to reduce
+                        turnaround from weeks to minutes?"</p>
+                </div>
+                <h3>Why This Matters</h3>
+                <ul>
+                    <li>Healthcare admin costs exceed <strong>$250 billion</strong> annually</li>
+                    <li><strong>34%</strong> of physicians report PA caused adverse patient events</li>
+                    <li>Average PA process takes <strong>2+ business days</strong></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SLIDE 16: PriorAuth Architecture -->
+        <div class="slide slide-content"
+            data-notes="PriorAuth AI uses a modern full-stack architecture with Next.js frontend and FastAPI backend, connected through a Docker container for deployment.">
+            <h2>🏗️ Technical Architecture — PriorAuth AI</h2>
+            <div class="two-column">
+                <div>
+                    <div class="diagram">┌──────────────────────────────────┐
+                        │ AWS App Runner (Docker) │
+                        │ ┌──────────────┐ ┌─────────────┐ │
+                        │ │ Next.js 15 │ │ FastAPI │ │
+                        │ │ React 19 │ │ Python 3.11│ │
+                        │ │ Port 3000 │→│ Port 8000 │ │
+                        │ │ │ │ │ │
+                        │ │ • Dashboard │ │ • JWT Auth │ │
+                        │ │ • PA Bench │ │ • RBAC │ │
+                        │ │ • Analytics │ │ • AI Service│ │
+                        │ └──────────────┘ └──────┬──────┘ │
+                        │ │ │
+                        │ ┌─────┴─────┐ │
+                        │ │ SQLite │ │
+                        │ └───────────┘ │
+                        └──────────────────────────────────┘</div>
+                </div>
+                <div>
+                    <table>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Technology</th>
+                        </tr>
+                        <tr>
+                            <td>Frontend</td>
+                            <td>Next.js 15, React 19, TypeScript</td>
+                        </tr>
+                        <tr>
+                            <td>Styling</td>
+                            <td>Vanilla CSS, Glassmorphism</td>
+                        </tr>
+                        <tr>
+                            <td>Backend</td>
+                            <td>FastAPI, Python 3.11+</td>
+                        </tr>
+                        <tr>
+                            <td>Database</td>
+                            <td>SQLite (PostgreSQL-ready)</td>
+                        </tr>
+                        <tr>
+                            <td>Auth</td>
+                            <td>JWT + bcrypt + RBAC</td>
+                        </tr>
+                        <tr>
+                            <td>AI</td>
+                            <td>Mock AI (LLM-ready)</td>
+                        </tr>
+                        <tr>
+                            <td>Deploy</td>
+                            <td>Docker + AWS App Runner</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 17: PriorAuth Features -->
+        <div class="slide slide-content"
+            data-notes="PriorAuth AI has six core features: PA Workbench, Documentation Assistant, Appeal Generator, Denial Analytics, Role-Based Access, and Mobile Responsive design.">
+            <h2>✨ Core Features — PriorAuth AI</h2>
+            <div class="scroll-content">
+                <div class="three-column">
+                    <div class="card">
+                        <h3 style="color: #e53935;">📋 PA Workbench</h3>
+                        <p>Upload PDFs, extract clinical data, generate payer-aligned PA packets</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #f57c00;">📝 Documentation Assistant</h3>
+                        <p>Draft SOAP/H&P notes with AI-suggested ICD-10 and CPT codes</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #4caf50;">⚖️ Appeal Generator</h3>
+                        <p>Auto-generate appeal letters with case & policy references</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #7b1fa2;">📊 Denial Analytics</h3>
+                        <p>Track denial reasons, turnaround times, payer trends</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #0097a7;">🔐 Role-Based Access</h3>
+                        <p>Nurse coordinators, providers, and managers with role-appropriate views</p>
+                    </div>
+                    <div class="card">
+                        <h3 style="color: #64b5f6;">📱 Mobile Responsive</h3>
+                        <p>3 breakpoints, hamburger menu, touch-optimized tables</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 18: PriorAuth GitHub -->
+        <div class="slide slide-content"
+            data-notes="Here's my PriorAuth AI GitHub repository. It contains the full-stack codebase with frontend (Next.js), backend (FastAPI), Dockerfile, and deployment configuration.">
+            <h2>📂 GitHub Repository — PriorAuth AI</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/pa-github-repo.png" alt="PriorAuth AI GitHub Repository Screenshot"
+                    style="max-width: 90%; max-height: 70vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 30px; text-align: center;">
+                    <p style="font-size: 1.2rem; opacity: 0.8;">Repository:
+                        <strong>Dedeepya2026/priorauth-ai</strong>
+                    </p>
+                    <a href="https://github.com/Dedeepya2026/priorauth-ai" target="_blank" class="demo-btn"
+                        style="margin-top: 15px; font-size: 1.1rem; padding: 15px 30px;">
+                        <i class="fab fa-github"></i> View on GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 19: PriorAuth Testing -->
+        <div class="slide slide-content"
+            data-notes="PriorAuth AI was tested across all user flows with comprehensive error handling on both frontend and backend.">
+            <h2>🧪 Testing & Error Handling — PriorAuth AI</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Functional Testing</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Login with 3 demo roles</li>
+                        <li><span class="check">✓</span> PA request CRUD operations</li>
+                        <li><span class="check">✓</span> AI packet & appeal generation</li>
+                        <li><span class="check">✓</span> Clinical note drafting</li>
+                        <li><span class="check">✓</span> Analytics dashboard loading</li>
+                        <li><span class="check">✓</span> Mobile responsiveness (3 breakpoints)</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Error Handling</h3>
+                    <table>
+                        <tr>
+                            <th>Layer</th>
+                            <th>Mechanism</th>
+                        </tr>
+                        <tr>
+                            <td>Backend</td>
+                            <td>Global exception handlers</td>
+                        </tr>
+                        <tr>
+                            <td>Frontend</td>
+                            <td>Error Boundary component</td>
+                        </tr>
+                        <tr>
+                            <td>Forms</td>
+                            <td>Inline validation messages</td>
+                        </tr>
+                        <tr>
+                            <td>API</td>
+                            <td>Toast notifications</td>
+                        </tr>
+                        <tr>
+                            <td>Loading</td>
+                            <td>Skeleton states</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 20: PriorAuth AWS Deployment -->
+        <div class="slide slide-content"
+            data-notes="PriorAuth AI uses Docker for deployment since it has both a Node.js frontend and Python backend that need to run together.">
+            <h2>☁️ AWS Deployment — PriorAuth AI</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Dockerfile (Multi-stage)</h3>
+                    <pre><code># Stage 1: Build Next.js
+FROM node:20-alpine AS frontend-build
+WORKDIR /app/frontend
+COPY frontend/ ./
+RUN npm ci && npm run build
+
+# Stage 2: Production
+FROM python:3.11-slim
+# Install Node.js + Python deps
+COPY backend/ ./backend/
+COPY --from=frontend-build \
+  /app/frontend/.next/standalone ./
+RUN cd backend && python seed.py
+
+EXPOSE 3000
+CMD ["./start.sh"]</code></pre>
+                </div>
+                <div>
+                    <h3>Deployment Config</h3>
+                    <table>
+                        <tr>
+                            <th>Setting</th>
+                            <th>Value</th>
+                        </tr>
+                        <tr>
+                            <td>Runtime</td>
+                            <td>Docker (custom)</td>
+                        </tr>
+                        <tr>
+                            <td>CPU</td>
+                            <td>1 vCPU</td>
+                        </tr>
+                        <tr>
+                            <td>Memory</td>
+                            <td>2 GB</td>
+                        </tr>
+                        <tr>
+                            <td>Port</td>
+                            <td>3000 (frontend proxy)</td>
+                        </tr>
+                        <tr>
+                            <td>Health Check</td>
+                            <td>/api/health</td>
+                        </tr>
+                        <tr>
+                            <td>Auto-deploy</td>
+                            <td>Enabled</td>
+                        </tr>
+                    </table>
+                    <h3>Key Difference from App 1</h3>
+                    <div class="card" style="margin-top: 10px;">
+                        <p>Uses <strong>Docker</strong> instead of apprunner.yaml because it requires both Node.js and
+                            Python runtimes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 21: AWS App Runner - Both Services Running -->
+        <div class="slide slide-content"
+            data-notes="Here's the AWS App Runner console showing both services running successfully. The priorauth-ai service and the react-app-aws-runner service are both live and healthy.">
+            <h2>✅ AWS App Runner - Both Services Running</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/pa-apprunner-status.png" alt="AWS App Runner Services - Both Running"
+                    style="max-width: 95%; max-height: 60vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 30px;">
+                    <table style="max-width: 700px; margin: 0 auto;">
+                        <tr>
+                            <th>Service</th>
+                            <th>Status</th>
+                            <th>URL</th>
+                        </tr>
+                        <tr>
+                            <td>priorauth-ai</td>
+                            <td><span style="color: #4caf50; font-weight: bold;">✓ Running</span></td>
+                            <td><a href="https://xy7ftdr25i.us-east-1.awsapprunner.com/" target="_blank"
+                                    style="color: #64b5f6;">xy7ftdr25i.us-east-1.awsapprunner.com</a></td>
+                        </tr>
+                        <tr>
+                            <td>react-app-aws-runner</td>
+                            <td><span style="color: #4caf50; font-weight: bold;">✓ Running</span></td>
+                            <td><a href="https://gktp6jkb3c.us-east-1.awsapprunner.com" target="_blank"
+                                    style="color: #64b5f6;">gktp6jkb3c.us-east-1.awsapprunner.com</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: PriorAuth AI Live Website Preview -->
+        <div class="slide slide-content"
+            data-notes="Here's the PriorAuth AI login page running live on AWS App Runner. It features role-based demo accounts for Nurse Coordinator, Provider, and Manager with quick login buttons.">
+            <h2>🌐 Live Website Preview — PriorAuth AI</h2>
+            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 1;">
+                <img src="/presentation-assets/pa-live-website.png" alt="PriorAuth AI Live Website - Login Page"
+                    style="max-width: 95%; max-height: 65vh; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.5); border: 2px solid rgba(255,255,255,0.1);">
+                <div style="margin-top: 20px; text-align: center;">
+                    <p style="font-size: 1.1rem; opacity: 0.8;">Live at: <a
+                            href="https://xy7ftdr25i.us-east-1.awsapprunner.com/" target="_blank"
+                            style="color: #64b5f6;">xy7ftdr25i.us-east-1.awsapprunner.com</a></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 22: PriorAuth Feedback -->
+        <div class="slide slide-content"
+            data-notes="Based on testing and feedback, several iterations were made to improve usability, error handling, and mobile responsiveness.">
+            <h2>🔄 Feedback & Iteration — PriorAuth AI</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Feedback Received</h3>
+                    <ul>
+                        <li>"Add loading states" → <strong>Skeleton screens</strong></li>
+                        <li>"Handle API errors gracefully" → <strong>Toast system</strong></li>
+                        <li>"Mobile sidebar blocks content" → <strong>Hamburger menu</strong></li>
+                        <li>"Form validation unclear" → <strong>Inline errors</strong></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Iterations Made</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Error boundary for crash recovery</li>
+                        <li><span class="check">✓</span> Toast notifications on all actions</li>
+                        <li><span class="check">✓</span> 3 responsive breakpoints</li>
+                        <li><span class="check">✓</span> Status tabs for PA request tracking</li>
+                        <li><span class="check">✓</span> Complete button for status transitions</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== COMBINED SECTIONS ==================== -->
+
+        <!-- SLIDE 23: AI's Role -->
+        <div class="slide slide-content"
+            data-notes="AI played a crucial role in accelerating development for both applications. The most effective approach was using specific, detailed prompts.">
+            <h2>🤖 AI's Role & Lessons Learned</h2>
+            <div class="scroll-content">
+                <h3>Most Effective AI Prompts</h3>
+                <table>
+                    <tr>
+                        <th>App</th>
+                        <th>Prompt Type</th>
+                        <th>Example</th>
+                        <th>Result</th>
+                    </tr>
+                    <tr>
+                        <td>Temu</td>
+                        <td>Feature</td>
+                        <td>"Add product detail page with tabs"</td>
+                        <td>Complete HTML/CSS/JS</td>
+                    </tr>
+                    <tr>
+                        <td>Temu</td>
+                        <td>Bug fix</td>
+                        <td>"Cart count not updating"</td>
+                        <td>Found missing listener</td>
+                    </tr>
+                    <tr>
+                        <td>PriorAuth</td>
+                        <td>Architecture</td>
+                        <td>"Build FastAPI backend with JWT auth"</td>
+                        <td>Full API scaffold</td>
+                    </tr>
+                    <tr>
+                        <td>PriorAuth</td>
+                        <td>Deploy</td>
+                        <td>"Multi-stage Dockerfile for Next+Python"</td>
+                        <td>Working Docker image</td>
+                    </tr>
+                </table>
+                <h3>Key Lessons</h3>
+                <div class="three-column" style="margin-top: 20px;">
+                    <div class="card"><strong>1.</strong> Be specific with prompts</div>
+                    <div class="card"><strong>2.</strong> Iterate in small steps</div>
+                    <div class="card"><strong>3.</strong> Always review AI code</div>
+                    <div class="card"><strong>4.</strong> Use AI for debugging</div>
+                    <div class="card"><strong>5.</strong> Document everything</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 24: Tools Used -->
+        <div class="slide slide-content"
+            data-notes="Both projects used a modern development stack combining AI assistance with cloud deployment tools.">
+            <h2>🛠️ Tools Used</h2>
+            <div class="three-column">
+                <div class="card">
+                    <h3 style="color: #e53935;">AI & Development</h3>
+                    <ul>
+                        <li><strong>Antigravity</strong> - AI coding</li>
+                        <li><strong>Cursor IDE</strong> - Editor</li>
+                        <li><strong>Claude</strong> - Prototyping</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color: #f57c00;">Cloud & DevOps</h3>
+                    <ul>
+                        <li><strong>AWS App Runner</strong></li>
+                        <li><strong>AWS CLI</strong></li>
+                        <li><strong>CloudWatch</strong></li>
+                        <li><strong>Docker</strong></li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3 style="color: #4caf50;">Version Control</h3>
+                    <ul>
+                        <li><strong>Git</strong></li>
+                        <li><strong>GitHub</strong></li>
+                        <li><strong>Auto-deploy</strong></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 25: Value Add -->
+        <div class="slide slide-content"
+            data-notes="The main value is demonstrating that AI-assisted development can dramatically reduce project timelines while maintaining quality across different domains.">
+            <h2>💰 Value Add & Business Impact</h2>
+            <div class="two-column">
+                <div>
+                    <h3>Cost/Benefit Analysis</h3>
+                    <table>
+                        <tr>
+                            <td>Total time saved</td>
+                            <td><strong>~80 hours</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Apps deployed</td>
+                            <td><strong>2 production apps</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Deploy complexity</td>
+                            <td><strong>Days → Minutes</strong></td>
+                        </tr>
+                        <tr>
+                            <td>AWS learning curve</td>
+                            <td><strong>Flattened</strong></td>
+                        </tr>
+                    </table>
+                </div>
+                <div>
+                    <h3>Impact Potential</h3>
+                    <div class="card">
+                        <p><strong>Temu Clone:</strong> Foundation for real e-commerce site, portfolio-ready</p>
+                    </div>
+                    <div class="card" style="margin-top: 15px;">
+                        <p><strong>PriorAuth AI:</strong> Reduces PA turnaround, improves patient outcomes</p>
+                    </div>
+                    <div class="card" style="margin-top: 15px;">
+                        <p><strong>Skills Gained:</strong> Full-stack, cloud deployment, Docker, AI-assisted dev</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 26: Conclusion -->
+        <div class="slide slide-content"
+            data-notes="In conclusion, these two projects demonstrate the power of AI-assisted development across different domains with real cloud deployment.">
+            <h2>🎯 Conclusion & Future Roadmap</h2>
+            <div class="two-column">
+                <div>
+                    <h3>What I Built</h3>
+                    <ul>
+                        <li><span class="check">✓</span> Full e-commerce clone (6 pages, 50+ products)</li>
+                        <li><span class="check">✓</span> Healthcare PA platform (6 modules)</li>
+                        <li><span class="check">✓</span> Both live on AWS App Runner</li>
+                        <li><span class="check">✓</span> CI/CD with auto-deploy on both</li>
+                        <li><span class="check">✓</span> Docker containerization</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>Future Roadmap</h3>
+                    <table>
+                        <tr>
+                            <th>App</th>
+                            <th>Next Steps</th>
+                        </tr>
+                        <tr>
+                            <td>Temu</td>
+                            <td>Backend API + DynamoDB</td>
+                        </tr>
+                        <tr>
+                            <td>Temu</td>
+                            <td>User auth (Cognito)</td>
+                        </tr>
+                        <tr>
+                            <td>PriorAuth</td>
+                            <td>Real LLM API integration</td>
+                        </tr>
+                        <tr>
+                            <td>PriorAuth</td>
+                            <td>PostgreSQL migration</td>
+                        </tr>
+                        <tr>
+                            <td>Both</td>
+                            <td>Payments (Stripe)</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- SLIDE 27: Q&A -->
+        <div class="slide slide-qa"
+            data-notes="Thank you for your attention! I'm happy to answer any questions about either application.">
+            <h1>❓ Questions?</h1>
+            <p class="subtitle" style="margin-top: 40px;">DEDEEPYA MADIREDDY</p>
+            <div style="margin-top: 40px;">
+                <p><i class="fas fa-globe"></i> <a href="https://gktp6jkb3c.us-east-1.awsapprunner.com" target="_blank"
+                        style="color: #fff;">Temu Clone — gktp6jkb3c.us-east-1.awsapprunner.com</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/Dedeepya2026/react-app-aws-runner"
+                        target="_blank" style="color: #fff;">github.com/Dedeepya2026/react-app-aws-runner</a></p>
+                <p style="margin-top: 15px;"><i class="fas fa-globe"></i> <a
+                        href="https://xy7ftdr25i.us-east-1.awsapprunner.com/" target="_blank"
+                        style="color: #fff;">PriorAuth AI — xy7ftdr25i.us-east-1.awsapprunner.com</a></p>
+                <p><i class="fab fa-github"></i> <a href="https://github.com/Dedeepya2026/priorauth-ai" target="_blank"
+                        style="color: #fff;">github.com/Dedeepya2026/priorauth-ai</a></p>
+            </div>
+            <div style="display: flex; gap: 20px; margin-top: 40px;">
+                <a href="https://gktp6jkb3c.us-east-1.awsapprunner.com/index.html" target="_blank" class="demo-btn">
+                    <i class="fas fa-play"></i> Try Temu Clone Live
+                </a>
+                <a href="https://xy7ftdr25i.us-east-1.awsapprunner.com/" target="_blank" class="demo-btn"
+                    style="background: #64b5f6;">
+                    <i class="fas fa-play"></i> Try PriorAuth AI Live
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="speaker-notes" id="speakerNotes"></div>
+
+    <div class="keyboard-hint">
+        Press ← → or click buttons to navigate | Press F for fullscreen | Press N for notes
+    </div>
+
+    <div class="nav-controls">
+        <button class="nav-btn" id="prevBtn" onclick="changeSlide(-1)">
+            <i class="fas fa-chevron-left"></i> Previous
+        </button>
+        <button class="nav-btn" id="nextBtn" onclick="changeSlide(1)">
+            Next <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">27</span>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        let notesVisible = false;
+
+        document.getElementById('totalSlides').textContent = totalSlides;
+
+        function showSlide(index) {
+            slides.forEach(slide => slide.classList.remove('active'));
+            if (index >= totalSlides) currentSlide = 0;
+            if (index < 0) currentSlide = totalSlides - 1;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('currentSlide').textContent = currentSlide + 1;
+            document.getElementById('progressBar').style.width = ((currentSlide + 1) / totalSlides * 100) + '%';
+            const notes = slides[currentSlide].getAttribute('data-notes');
+            document.getElementById('speakerNotes').textContent = notes || '';
+            document.getElementById('prevBtn').disabled = currentSlide === 0;
+            document.getElementById('nextBtn').disabled = currentSlide === totalSlides - 1;
+        }
+
+        function changeSlide(direction) {
+            currentSlide += direction;
+            showSlide(currentSlide);
+        }
+
+        function toggleNotes() {
+            notesVisible = !notesVisible;
+            document.getElementById('speakerNotes').classList.toggle('visible', notesVisible);
+        }
+
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') { changeSlide(1); }
+            else if (e.key === 'ArrowLeft') { changeSlide(-1); }
+            else if (e.key === 'f' || e.key === 'F') { toggleFullscreen(); }
+            else if (e.key === 'n' || e.key === 'N') { toggleNotes(); }
+        });
+
+        showSlide(0);
+    </script>
+</body>
+
+</html>

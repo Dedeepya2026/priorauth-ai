@@ -94,6 +94,28 @@ def health():
     return {"status": "healthy", "app": settings.APP_NAME, "version": "1.0.0"}
 
 
+# ── Serve Presentation ──────────────────────────────────
+PRESENTATION_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "presentation")
+if not os.path.isdir(PRESENTATION_DIR):
+    PRESENTATION_DIR = os.path.join(os.path.dirname(__file__), "..", "presentation")
+if not os.path.isdir(PRESENTATION_DIR):
+    PRESENTATION_DIR = os.path.join(os.getcwd(), "..", "presentation")
+if not os.path.isdir(PRESENTATION_DIR):
+    PRESENTATION_DIR = os.path.join(os.getcwd(), "presentation")
+
+logger.info(f"Presentation directory: {PRESENTATION_DIR} (exists: {os.path.isdir(PRESENTATION_DIR)})")
+
+if os.path.isdir(PRESENTATION_DIR):
+    @app.get("/presentation.html")
+    async def serve_presentation():
+        pres_file = os.path.join(PRESENTATION_DIR, "presentation.html")
+        if os.path.isfile(pres_file):
+            return FileResponse(pres_file, media_type="text/html")
+        return JSONResponse(status_code=404, content={"detail": "Presentation not found"})
+
+    app.mount("/presentation-assets", StaticFiles(directory=PRESENTATION_DIR), name="presentation_assets")
+
+
 # ── Serve Static Frontend ───────────────────────────────
 # The Next.js static export goes to ../frontend/out/
 FRONTEND_DIR = os.path.join(os.path.dirname(os.path.dirname(__file__)), "frontend", "out")
